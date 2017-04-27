@@ -268,6 +268,18 @@ To achieve all of this in a dead simple way, just use our api client libraries.
 
 <p>Unfortunately, this means that shell access is a bit clunky due to signature generation.</p>
 
+<h2 id="notes">Notes</h2>
+
+<p>All API calls will return:</p>
+
+<ol>
+<li>Timezone aware dates in iso8601 format.</li>
+<li>Unicode strings when the data is unicode.</li>
+<li>Transaction values in 2 decimal places.</li>
+</ol>
+
+<p>We expect the reverse to be true. For example, if you wish to query for transactions between two time instants, provide a timezone aware iso8601 timestamp.</p>
+
 <h1 id="client-initialisation">Client initialisation</h1>
 
 <blockquote>
@@ -317,7 +329,7 @@ You must replace  provide a valid set of user id, access key and secret key. Not
 <span class="n">client</span><span class="p">.</span><span class="nf">wallet</span><span class="p">.</span><span class="nf">get</span>
 </code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The above command returns a dictionary/hash table representation of this JSON:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
    </span><span class="p">{</span><span class="w">
