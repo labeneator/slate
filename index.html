@@ -6,104 +6,212 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>API Reference</title>
 
-    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
     <style>
       .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
-.highlight, .highlight .w {
-  color: #f8f8f2;
-  background-color: #272822;
-}
-.highlight .err {
-  color: #151515;
-  background-color: #ac4142;
-}
-.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
-  color: #505050;
-}
-.highlight .cp {
-  color: #f4bf75;
-}
-.highlight .nt {
-  color: #f4bf75;
-}
-.highlight .o, .highlight .ow {
-  color: #d0d0d0;
-}
-.highlight .p, .highlight .pi {
-  color: #d0d0d0;
-}
-.highlight .gi {
-  color: #90a959;
-}
-.highlight .gd {
-  color: #ac4142;
-}
 .highlight .gh {
-  color: #6a9fb5;
-  background-color: #151515;
-  font-weight: bold;
-}
-.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
-  color: #aa759f;
-}
-.highlight .kc {
-  color: #d28445;
-}
-.highlight .kt {
-  color: #d28445;
-}
-.highlight .kd {
-  color: #d28445;
-}
-.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
-  color: #90a959;
+  color: #999999;
 }
 .highlight .sr {
-  color: #75b5aa;
+  color: #f6aa11;
 }
-.highlight .si {
-  color: #8f5536;
+.highlight .go {
+  color: #888888;
 }
-.highlight .se {
-  color: #8f5536;
+.highlight .gp {
+  color: #555555;
 }
-.highlight .nn {
-  color: #f4bf75;
+.highlight .gs {
 }
-.highlight .nc {
-  color: #f4bf75;
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
 }
 .highlight .no {
-  color: #f4bf75;
+  color: #66d9ef;
 }
-.highlight .na {
-  color: #6a9fb5;
+.highlight .kt {
+  color: #66d9ef;
 }
-.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
-  color: #90a959;
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
 }
 .highlight .ss {
-  color: #90a959;
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
 }
     </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;]">
+  <body class="index" data-languages="[&quot;python&quot;,&quot;ruby&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="images/navbar.png" />
+        <img src="images/navbar.png" alt="Navbar" />
       </span>
     </a>
     <div class="tocify-wrapper">
-      <img src="images/logo.png" />
+      <img src="images/logo.png" alt="Logo" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
               <a href="#" data-language-name="python">python</a>
+              <a href="#" data-language-name="ruby">ruby</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -112,7 +220,7 @@
       <div id="toc">
       </div>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
+            <li><a href='https://www.nifty.co.ke/users/register/'>Sign Up for a Developer Key</a></li>
             <li><a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
@@ -121,147 +229,191 @@
       <div class="content">
         <h1 id="introduction">Introduction</h1>
 
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>Welcome to the Nifty API! You can use our API to access Nifty Payment API endpoints, which can get information on transactions and events related to your wallet.</p>
 
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<p>We have language bindings in Ruby and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
 
-<p>This example API documentation page was created with <a href="https://github.com/tripit/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&rsquo;s documentation.</p>
+<p>To proceed,</p>
 
-<h1 id="authentication">Authentication</h1>
+<ol>
+<li><a href='https://www.nifty.co.ke/users/register/'>Sign up</a> for an account. You will need to validate your email account and mobile phone number.</li>
+<li>Navigate to your profile and create an API Key. Save the secret key somewhere safe since we will not show it again.</li>
+<li>Install your language specific Nifty api client.</li>
+<li>Configure your client with your API access key, secret key and user id.</li>
+<li>Make calls</li>
+</ol>
 
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<h2 id="transport-security">Transport security</h2>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<p>All API requests to us should be made over HTTPS and be signed. This provides us with certain guarantees that:</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
+<ol>
+<li>You made the API call.</li>
+<li>The API call has not been tampered with.</li>
+<li>The API call is not a replay attack.</li>
+<li>Your API call was visible to you and us only.</li>
+</ol>
 
-<blockquote>
-<p>Make sure to replace <code class="prettyprint">meowmeowmeow</code> with your API key.</p>
-</blockquote>
+<p>To ensure that will always be true,</p>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code class="prettyprint">Authorization: meowmeowmeow</code></p>
+<ol>
+<li>Rotate your keys frequently.</li>
+<li>Conduct (or let your client) ssl certificate verification.</li>
+<li>Use NTP/Time servers to ensure that your api callers have the correct time.</li>
+</ol>
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+To achieve all of this in a dead simple way, just use our api client libraries.
 </aside>
 
-<h1 id="kittens">Kittens</h1>
+<p>Unfortunately, this means that shell access is a bit clunky due to signature generation.</p>
 
-<h2 id="get-all-kittens">Get All Kittens</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<h1 id="client-initialisation">Client initialisation</h1>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
+<blockquote>
+<p>To initialise, use this code:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">nifty_client</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">nifty_client</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'niftyclient'</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="no">Nifty</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">initialise!</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
 </code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<blockquote>
+<p>Make sure to replace <code class="prettyprint">user_id</code>, <code class="prettyprint">access_key</code>, and <code class="prettyprint">secret_key</code> with your API details from the API tab on the dashboard.</p>
+</blockquote>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
+<p>Nifty clients use API keys to allow access to the API. You can register for your API key at our <a href="https://www.nifty.co.ke/users/profile#tab_api_settings">developer portal</a>.</p>
 
+<p>Once you initialise your client, the api payload HMAC will be included in all API requests to the server in a header that looks like the following:</p>
+
+<p><code class="prettyprint">Authorization: &#39;Signature headers=&quot;date (request-target) host content-length content-type x-content-sha256&quot;,keyId=&quot;e51cab9a86a9d045e3aea24dbca34536&quot;,algorithm=&quot;hmac-sha256&quot;,signature=&quot;iB2uqBBjVXIzVcV3jeZTGpnhQ1yTz3AnpT/JAcLzVKw=&quot;&#39;</code></p>
+
+<p>For POST and PUT, the payload will HMAC&rsquo;d and the checksum will be included in a header similar to:</p>
+
+<p><code class="prettyprint">x-content-sha256: &#39;bvVpDJi7jhDkudLoYg09WtyEHnnyYDeldRHFsvuJKCk=&#39;</code></p>
+
+<aside class="notice">
+You must replace  provide a valid set of user id, access key and secret key. Not doing so result in a HTTP 403 response with the payload
+<code>
+{
+    "message": "Access denied"
+}
+</code>.
+</aside>
+
+<h1 id="wallet">Wallet</h1>
+
+<h2 id="get-all-wallets">Get All Wallets</h2>
+<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">nifty_client</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">nifty_client</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">get_wallet</span><span class="p">()</span>
+
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'niftyclient'</span>
+<span class="n">client</span> <span class="o">=</span> <span class="no">Nifty</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">initialise!</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
+
+<span class="n">client</span><span class="p">.</span><span class="nf">wallet</span><span class="p">.</span><span class="nf">get</span>
+</code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"user_name"</span><span class="p">:</span><span class="s2">"mike"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2017-04-24T23:33:52.747695+03:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"balance"</span><span class="p">:</span><span class="s2">"1645.46"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user_id"</span><span class="p">:</span><span class="s2">"8dad2dea-7d7f-4e8b-a61c-53150f1b7452"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="s2">"2017-04-25T00:12:36.050071+03:00"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-
-<p>This endpoint retrieves all kittens.</p>
+<p>This endpoint retrieves all your wallets. If you don&rsquo;t have a wallet, you will get a response with an empty json list. Just issue the create wallet call to create one.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://example.com/api/kittens</code></p>
+<p><code class="prettyprint">GET http://api.nifty.co.ke/api/v1/user/&lt;uuid:user_id&gt;/wallet</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
-</tr>
-</tbody></table>
+<p>None</p>
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
+<h2 id="create-a-wallet">Create A Wallet</h2>
+<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">nifty_client</span>
 
-<h2 id="get-a-specific-kitten">Get a Specific Kitten</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">nifty_client</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">create_wallet</span><span class="p">()</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'niftyclient'</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="no">Nifty</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">initialise!</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
+<span class="n">client</span><span class="p">.</span><span class="nf">wallet</span><span class="p">.</span><span class="nf">create</span>
 </code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
-
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"user_name"</span><span class="p">:</span><span class="s2">"mike"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2017-04-24T23:33:52.747695+03:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"balance"</span><span class="p">:</span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user_id"</span><span class="p">:</span><span class="s2">"8dad2dea-7d7f-4e8b-a61c-53150f1b7452"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="s2">"2017-04-25T00:12:36.050071+03:00"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
 </span></code></pre>
+<p>This endpoint creates a wallet.</p>
 
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can&rsquo;t use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+<aside class="notice">This operation is idempotent and can be safely called multiple times.</aside>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://example.com/kittens/&lt;ID&gt;</code></p>
+<p><code class="prettyprint">POST http://api.nifty.co.ke/api/v1/user/&lt;uuid:user_id&gt;/wallet</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<p>None</p>
+
+<h2 id="consume-a-token">Consume A Token</h2>
+<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">nifty_client</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">nifty_client</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">consume_token</span><span class="p">(</span>
+    <span class="n">transaction_id</span><span class="o">=</span><span class="s">"7BMKZ6K7E8"</span><span class="p">,</span> <span class="n">phone_number</span><span class="o">=</span><span class="s">"254716622448"</span><span class="p">,</span> <span class="n">till_number</span><span class="o">=</span><span class="mi">703648</span><span class="p">)</span>
+
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'niftyclient'</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="no">Nifty</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">initialise!</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
+<span class="n">client</span><span class="p">.</span><span class="nf">wallet</span><span class="p">.</span><span class="nf">consume_token</span><span class="p">(</span>
+    <span class="n">transaction_id</span><span class="o">=</span><span class="s2">"7BMKZ6K7E8"</span><span class="p">,</span> <span class="n">phone_number</span><span class="o">=</span><span class="s2">"254722123456"</span><span class="p">,</span> <span class="n">till_number</span><span class="o">=</span><span class="mi">703648</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"payment_id"</span><span class="p">:</span><span class="s2">"d2c29c60-0b1a-11e7-8f7b-061cf2e0e94d"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"till_number"</span><span class="p">:</span><span class="s2">"703648"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user_id"</span><span class="p">:</span><span class="s2">"8dad2dea-7d7f-4e8b-a61c-53150f1b7452"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"trans_amount"</span><span class="p">:</span><span class="s2">"581.37"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"msisdn"</span><span class="p">:</span><span class="s2">"254722123456"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"trans_time"</span><span class="p">:</span><span class="s2">"2017-01-24T21:30:52.739243+03:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="s2">"2017-01-24T21:30:52.739243+03:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"names"</span><span class="p">:</span><span class="s2">"First M Last"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"trans_id"</span><span class="p">:</span><span class="s2">"0OZC02Q1OZ"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint consumes a token and credits your wallet with the token amount.</p>
+
+<aside class="notice">This operation is not idempotent and cannot be safely called multiple times. However, in case of failure, use the transactions list api to refetch the call result.</aside>
+
+<aside class="success">If successful, this call will credit your account with the token value</aside>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">PUT http://api.nifty.co.ke/api/v1/user/&lt;uuid:user_id&gt;/wallet</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -272,16 +424,152 @@ Remember — a happy kitten is an authenticated kitten!
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>transaction_id</td>
+<td>The unique token identifier (Ex: MPESA transaction code or Airtel Money transaction ID).</td>
+</tr>
+<tr>
+<td>phone_number</td>
+<td>The phone number of the user who executed the money transfer (Ex: Phone Number of MPESA sender).</td>
+</tr>
+<tr>
+<td>till_number</td>
+<td>The till number the user sent the money to. Please note that for Safaricom MPESA, this will correspond to the store_number. Use the till tab, on your profile page on the dashboard to get the correct value to use here.</td>
+</tr>
+</tbody></table>
+
+<h2 id="view-transactions">View Transactions</h2>
+<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">nifty_client</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">nifty_client</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">transactions</span><span class="p">()</span>
+
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'niftyclient'</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="no">Nifty</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">initialise!</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
+<span class="n">client</span><span class="p">.</span><span class="nf">transactions</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"payment_id"</span><span class="p">:</span><span class="s2">"d2c29c60-0b1a-11e7-8f7b-061cf2e0e94d"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"till_number"</span><span class="p">:</span><span class="s2">"703648"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="s2">"2016-11-04T21:30:52.739569+03:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user_id"</span><span class="p">:</span><span class="s2">"15695297-f441-4b1c-a75b-831fbb1d1431"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"names"</span><span class="p">:</span><span class="s2">"First M Last"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"msisdn"</span><span class="p">:</span><span class="s2">"254722123456"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"trans_time"</span><span class="p">:</span><span class="s2">"2016-11-04T21:30:52.739569+03:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"trans_id"</span><span class="p">:</span><span class="s2">"DZ56D1KDZG"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"trans_amount"</span><span class="p">:</span><span class="s2">"250.02"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"payment_id"</span><span class="p">:</span><span class="s2">"d2c29c60-0b1a-11e7-8f7b-061cf2e0e94d"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"till_number"</span><span class="p">:</span><span class="s2">"703648"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="s2">"2016-11-10T21:30:52.739705+03:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user_id"</span><span class="p">:</span><span class="s2">"15695297-f441-4b1c-a75b-831fbb1d1431"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"names"</span><span class="p">:</span><span class="s2">"First M Last"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"msisdn"</span><span class="p">:</span><span class="s2">"254722123456"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"trans_time"</span><span class="p">:</span><span class="s2">"2016-11-10T21:30:52.739705+03:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"trans_id"</span><span class="p">:</span><span class="s2">"2ZS5XLSY3P"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"trans_amount"</span><span class="p">:</span><span class="s2">"40.19"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"payment_id"</span><span class="p">:</span><span class="s2">"d2c29c60-0b1a-11e7-8f7b-061cf2e0e94d"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"till_number"</span><span class="p">:</span><span class="s2">"703648"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="s2">"2016-08-29T21:30:52.739833+03:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user_id"</span><span class="p">:</span><span class="s2">"15695297-f441-4b1c-a75b-831fbb1d1431"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"names"</span><span class="p">:</span><span class="s2">"First M Last"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"msisdn"</span><span class="p">:</span><span class="s2">"254722123456"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"trans_time"</span><span class="p">:</span><span class="s2">"2016-08-29T21:30:52.739833+03:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"trans_id"</span><span class="p">:</span><span class="s2">"7BMKZ6K7E8"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"trans_amount"</span><span class="p">:</span><span class="s2">"276.40"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint lists the last 30 transactions made against your wallet. Use the limit and offset arguments to fetch paginated results.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://api.nifty.co.ke/api/v1/user/&lt;uuid:user_id&gt;/wallet/transactions</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>limit</td>
+<td>The maximum number of results to return in this call.</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>Where to start the paginated result.</td>
+</tr>
+</tbody></table>
+
+<h2 id="search-for-a-transaction">Search For A Transaction</h2>
+<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">nifty_client</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">nifty_client</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">transactions</span><span class="p">(</span><span class="n">transaction_id</span><span class="o">=</span><span class="s">'DZ56D1KDZG'</span><span class="p">)</span>
+
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'niftyclient'</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="no">Nifty</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">initialise!</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
+<span class="n">client</span><span class="p">.</span><span class="nf">transactions</span><span class="p">(</span><span class="n">transaction_id</span><span class="o">=</span><span class="s1">'DZ56D1KDZG'</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"payment_id"</span><span class="p">:</span><span class="s2">"d2c29c60-0b1a-11e7-8f7b-061cf2e0e94d"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"till_number"</span><span class="p">:</span><span class="s2">"703648"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user_id"</span><span class="p">:</span><span class="s2">"8dad2dea-7d7f-4e8b-a61c-53150f1b7452"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"trans_amount"</span><span class="p">:</span><span class="s2">"581.37"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"msisdn"</span><span class="p">:</span><span class="s2">"254716622448"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"trans_time"</span><span class="p">:</span><span class="s2">"2017-01-24T21:30:52.739243+03:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="s2">"2017-01-24T21:30:52.739243+03:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"names"</span><span class="p">:</span><span class="s2">"LABAN M KIMOTHO"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"trans_id"</span><span class="p">:</span><span class="s2">"0OZC02Q1OZ"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint lists the last 30 transactions made against your wallet. Use the limit and offset arguments to fetch paginated results.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://api.nifty.co.ke/api/v1/user/&lt;uuid:user_id&gt;/wallet/transactions</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>transaction_id</td>
+<td>The id of the transaction token being looked up.</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>The maximum number of results to return in this call.</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>Where to start the paginated result.</td>
 </tr>
 </tbody></table>
 
           <h1 id="errors">Errors</h1>
 
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the `includes` folder and add them to the top of your `index.md`&rsquo;s frontmatter. Files are included in the order listed.</aside>
-
-<p>The Kittn API uses the following error codes:</p>
+<p>The Nifty API uses the following error codes:</p>
 
 <table><thead>
 <tr>
@@ -291,39 +579,31 @@ Remember — a happy kitten is an authenticated kitten!
 </thead><tbody>
 <tr>
 <td>400</td>
-<td>Bad Request &ndash; Your request sucks</td>
+<td>Bad Request &ndash; Your request was incorrect</td>
 </tr>
 <tr>
 <td>401</td>
-<td>Unauthorized &ndash; Your API key is wrong</td>
+<td>Unauthorized &ndash; Your API key is wrong or you did not provide one</td>
 </tr>
 <tr>
 <td>403</td>
-<td>Forbidden &ndash; The kitten requested is hidden for administrators only</td>
+<td>Forbidden &ndash; The API call cannot be requested by you.</td>
 </tr>
 <tr>
 <td>404</td>
-<td>Not Found &ndash; The specified kitten could not be found</td>
+<td>Not Found &ndash; The specified resource was not found.</td>
 </tr>
 <tr>
 <td>405</td>
-<td>Method Not Allowed &ndash; You tried to access a kitten with an invalid method</td>
+<td>Method Not Allowed &ndash; The HTTP method is not allowed on this resource.</td>
 </tr>
 <tr>
 <td>406</td>
 <td>Not Acceptable &ndash; You requested a format that isn&rsquo;t json</td>
 </tr>
 <tr>
-<td>410</td>
-<td>Gone &ndash; The kitten requested has been removed from our servers</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&rsquo;m a teapot</td>
-</tr>
-<tr>
 <td>429</td>
-<td>Too Many Requests &ndash; You&rsquo;re requesting too many kittens! Slow down!</td>
+<td>Too Many Requests &ndash; You are being throttled! Slow down!</td>
 </tr>
 <tr>
 <td>500</td>
@@ -331,16 +611,15 @@ Remember — a happy kitten is an authenticated kitten!
 </tr>
 <tr>
 <td>503</td>
-<td>Service Unavailable &ndash; We&rsquo;re temporarially offline for maintanance. Please try again later.</td>
+<td>Service Unavailable &ndash; We&rsquo;re temporarily offline for maintenance. Please try again later.</td>
 </tr>
 </tbody></table>
 
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
                 <a href="#" data-language-name="python">python</a>
+                <a href="#" data-language-name="ruby">ruby</a>
           </div>
       </div>
     </div>
