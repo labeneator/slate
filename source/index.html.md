@@ -50,6 +50,18 @@ To achieve all of this in a dead simple way, just use our api client libraries.
 
 Unfortunately, this means that shell access is a bit clunky due to signature generation.
 
+## Notes
+
+All API calls will return:
+
+1. Timezone aware dates in iso8601 format.
+2. Unicode strings when the data is unicode.
+3. Transaction values in 2 decimal places.
+
+
+We expect the reverse to be true. For example, if you wish to query for transactions between two time instants, provide a timezone aware iso8601 timestamp.
+
+
 # Client initialisation
 
 > To initialise, use this code:
@@ -106,7 +118,7 @@ client = Nifty::APIClient.initialise!(user_id, access_key, secret_key)
 client.wallet.get
 ```
 
-> The above command returns JSON structured like this:
+> The above command returns a dictionary/hash table representation of this JSON:
 
 ```json
 [
