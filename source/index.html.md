@@ -62,14 +62,19 @@ All API calls will return:
 We expect the reverse to be true. For example, if you wish to query for transactions between two time instants, provide a timezone aware iso8601 timestamp.
 
 
-# Client initialisation
+# Client Initialisation
 
 > To initialise, use this code:
 
 ```python
-import nifty_client
+from nifty_client import NiftyWalletClient
 
-client = nifty_client(user_id, access_key, secret_key)
+class Config:
+    key_id = "e51cab9a86a9d045e3aea24dbca34536"
+    secret = "97224b6b736913ba612904da65022f5ec64c1a8906224654be068cace859d7dfb73ece0810f691d8072d36a62f708bc6"
+    user_id = "8dad2dea-7d7f-4e8b-a61c-53150f1b7452"
+
+client = NiftyWalletClient(Config(), logger)
 ```
 
 ```ruby
@@ -104,21 +109,23 @@ You must replace  provide a valid set of user id, access key and secret key. Not
 ## Get All Wallets
 
 ```python
-import nifty_client
-
-client = nifty_client(user_id, access_key, secret_key)
-client.get_wallet()
-
+response = client.get_wallet()
+wallet_response = response
 ```
 
 ```ruby
-require 'niftyclient'
-client = Nifty::APIClient.initialise!(user_id, access_key, secret_key)
-
-client.wallet.get
+wallet_response = client.wallet.get
 ```
 
-> The above command returns a dictionary/hash table representation of this JSON:
+> The above command returns an object wrapping the response and can be accessed as shown below:
+
+```python
+wallet_response.available_resultset_size
+wallet = wallet_response.wallets[0]
+wallet.balance
+```
+
+> JSON dump of available fields in a wallet.
 
 ```json
 [
@@ -142,32 +149,31 @@ This endpoint retrieves all your wallets. If you don't have a wallet, you will g
 
 None
 
-
 ## Create A Wallet
 
 ```python
-import nifty_client
-
-client = nifty_client(user_id, access_key, secret_key)
-client.create_wallet()
-
+wallet_response = client.create_wallet()
 ```
 
 ```ruby
-require 'niftyclient'
+wallet_response = client.wallet.create
+```
+> The above command returns an object wrapping the response and can be accessed as shown below:
 
-client = Nifty::APIClient.initialise!(user_id, access_key, secret_key)
-client.wallet.create
+```python
+wallet_response.available_resultset_size
+wallet = wallet_response.wallets[0]
+wallet.balance
 ```
 
-> The above command returns JSON structured like this:
+> JSON dump of available fields in a wallet.
 
 ```json
 [
    {
       "user_name":"mike",
       "created_at":"2017-04-24T23:33:52.747695+03:00",
-      "balance":"0.00",
+      "balance":"1645.46",
       "user_id":"8dad2dea-7d7f-4e8b-a61c-53150f1b7452",
       "last_modified":"2017-04-25T00:12:36.050071+03:00"
    }
@@ -190,23 +196,24 @@ None
 ## Consume A Token
 
 ```python
-import nifty_client
-
-client = nifty_client(user_id, access_key, secret_key)
-client.consume_token(
-    transaction_id="7BMKZ6K7E8", phone_number="254716622448", till_number=703648)
+token_response = client.consume_token( 
+				transaction_id="7BMKZ6K7E8", phone_number="254716622448", till_number=703648)
 
 ```
 
 ```ruby
-require 'niftyclient'
+token_response = client.wallet.consume_token(
+				transaction_id="7BMKZ6K7E8", phone_number="254716622448", till_number=703648)
+```
+> The above command returns an object wrapping the response and can be accessed as shown below:
 
-client = Nifty::APIClient.initialise!(user_id, access_key, secret_key)
-client.wallet.consume_token(
-    transaction_id="7BMKZ6K7E8", phone_number="254722123456", till_number=703648)
+```python
+token_response.available_resultset_size
+token = token_response.tokens[0]
+token.trans_amount
 ```
 
-> The above command returns JSON structured like this:
+> JSON dump of available fields in a token
 
 ```json
 [
@@ -247,21 +254,23 @@ till_number      | The till number the user sent the money to. Please note that 
 ## View Transactions
 
 ```python
-import nifty_client
-
-client = nifty_client(user_id, access_key, secret_key)
-client.transactions()
+transaction_response = client.transactions()
 
 ```
 
 ```ruby
-require 'niftyclient'
+transaction_response = client.wallet.transactions
+```
+> The above command returns an object wrapping the response and can be accessed as shown below:
 
-client = Nifty::APIClient.initialise!(user_id, access_key, secret_key)
-client.transactions
+```python
+transaction_response.available_resultset_size
+transaction = transaction_response.transactions[0]
+transaction.trans_amount
 ```
 
-> The above command returns JSON structured like this:
+> JSON dump of available fields in a transaction
+
 
 ```json
 [
@@ -318,21 +327,21 @@ offset           | Where to start the paginated result.
 ## Search For A Transaction
 
 ```python
-import nifty_client
-
-client = nifty_client(user_id, access_key, secret_key)
-client.transactions(transaction_id='DZ56D1KDZG')
-
+transaction_response = client.transactions(transaction_id='DZ56D1KDZG')
 ```
 
 ```ruby
-require 'niftyclient'
+transaction_response = client.wallet.transactions(transaction_id='DZ56D1KDZG')
+```
+> The above command returns an object wrapping the response and can be accessed as shown below:
 
-client = Nifty::APIClient.initialise!(user_id, access_key, secret_key)
-client.transactions(transaction_id='DZ56D1KDZG')
+```python
+transaction_response.available_resultset_size
+transaction = transaction_response.transactions[0]
+transaction.trans_amount
 ```
 
-> The above command returns JSON structured like this:
+> JSON dump of available fields in a transaction.
 
 ```json
 [
@@ -350,7 +359,7 @@ client.transactions(transaction_id='DZ56D1KDZG')
 ]
 ```
 
-This endpoint lists the last 30 transactions made against your wallet. Use the limit and offset arguments to fetch paginated results.
+This endpoint lists the matching transactions found in your wallet.
 
 
 ### HTTP Request
