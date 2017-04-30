@@ -280,14 +280,19 @@ To achieve all of this in a dead simple way, just use our api client libraries.
 
 <p>We expect the reverse to be true. For example, if you wish to query for transactions between two time instants, provide a timezone aware iso8601 timestamp.</p>
 
-<h1 id="client-initialisation">Client initialisation</h1>
+<h1 id="client-initialisation">Client Initialisation</h1>
 
 <blockquote>
 <p>To initialise, use this code:</p>
 </blockquote>
-<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">nifty_client</span>
+<pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">nifty_client</span> <span class="kn">import</span> <span class="n">NiftyWalletClient</span>
 
-<span class="n">client</span> <span class="o">=</span> <span class="n">nifty_client</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">Config</span><span class="p">:</span>
+    <span class="n">key_id</span> <span class="o">=</span> <span class="s">"e51cab9a86a9d045e3aea24dbca34536"</span>
+    <span class="n">secret</span> <span class="o">=</span> <span class="s">"97224b6b736913ba612904da65022f5ec64c1a8906224654be068cace859d7dfb73ece0810f691d8072d36a62f708bc6"</span>
+    <span class="n">user_id</span> <span class="o">=</span> <span class="s">"8dad2dea-7d7f-4e8b-a61c-53150f1b7452"</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">NiftyWalletClient</span><span class="p">(</span><span class="n">Config</span><span class="p">(),</span> <span class="n">logger</span><span class="p">)</span>
 </code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'niftyclient'</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="no">Nifty</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">initialise!</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
@@ -318,18 +323,19 @@ You must replace  provide a valid set of user id, access key and secret key. Not
 <h1 id="wallet">Wallet</h1>
 
 <h2 id="get-all-wallets">Get All Wallets</h2>
-<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">nifty_client</span>
-
-<span class="n">client</span> <span class="o">=</span> <span class="n">nifty_client</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
-<span class="n">client</span><span class="o">.</span><span class="n">get_wallet</span><span class="p">()</span>
-
-</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'niftyclient'</span>
-<span class="n">client</span> <span class="o">=</span> <span class="no">Nifty</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">initialise!</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
-
-<span class="n">client</span><span class="p">.</span><span class="nf">wallet</span><span class="p">.</span><span class="nf">get</span>
+<pre class="highlight python tab-python"><code><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_wallet</span><span class="p">()</span>
+<span class="n">wallet_response</span> <span class="o">=</span> <span class="n">response</span>
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="n">wallet_response</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="nf">wallet</span><span class="p">.</span><span class="nf">get</span>
 </code></pre>
 <blockquote>
-<p>The above command returns a dictionary/hash table representation of this JSON:</p>
+<p>The above command returns an object wrapping the response and can be accessed as shown below:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="n">wallet_response</span><span class="o">.</span><span class="n">available_resultset_size</span>
+<span class="n">wallet</span> <span class="o">=</span> <span class="n">wallet_response</span><span class="o">.</span><span class="n">wallets</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">wallet</span><span class="o">.</span><span class="n">balance</span>
+</code></pre>
+<blockquote>
+<p>JSON dump of available fields in a wallet.</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
    </span><span class="p">{</span><span class="w">
@@ -352,24 +358,24 @@ You must replace  provide a valid set of user id, access key and secret key. Not
 <p>None</p>
 
 <h2 id="create-a-wallet">Create A Wallet</h2>
-<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">nifty_client</span>
-
-<span class="n">client</span> <span class="o">=</span> <span class="n">nifty_client</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
-<span class="n">client</span><span class="o">.</span><span class="n">create_wallet</span><span class="p">()</span>
-
-</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'niftyclient'</span>
-
-<span class="n">client</span> <span class="o">=</span> <span class="no">Nifty</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">initialise!</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
-<span class="n">client</span><span class="p">.</span><span class="nf">wallet</span><span class="p">.</span><span class="nf">create</span>
+<pre class="highlight python tab-python"><code><span class="n">wallet_response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">create_wallet</span><span class="p">()</span>
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="n">wallet_response</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="nf">wallet</span><span class="p">.</span><span class="nf">create</span>
 </code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The above command returns an object wrapping the response and can be accessed as shown below:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="n">wallet_response</span><span class="o">.</span><span class="n">available_resultset_size</span>
+<span class="n">wallet</span> <span class="o">=</span> <span class="n">wallet_response</span><span class="o">.</span><span class="n">wallets</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">wallet</span><span class="o">.</span><span class="n">balance</span>
+</code></pre>
+<blockquote>
+<p>JSON dump of available fields in a wallet.</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
    </span><span class="p">{</span><span class="w">
       </span><span class="s2">"user_name"</span><span class="p">:</span><span class="s2">"mike"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2017-04-24T23:33:52.747695+03:00"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"balance"</span><span class="p">:</span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"balance"</span><span class="p">:</span><span class="s2">"1645.46"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"user_id"</span><span class="p">:</span><span class="s2">"8dad2dea-7d7f-4e8b-a61c-53150f1b7452"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="s2">"2017-04-25T00:12:36.050071+03:00"</span><span class="w">
    </span><span class="p">}</span><span class="w">
@@ -388,20 +394,21 @@ You must replace  provide a valid set of user id, access key and secret key. Not
 <p>None</p>
 
 <h2 id="consume-a-token">Consume A Token</h2>
-<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">nifty_client</span>
+<pre class="highlight python tab-python"><code><span class="n">token_response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">consume_token</span><span class="p">(</span> 
+                <span class="n">transaction_id</span><span class="o">=</span><span class="s">"7BMKZ6K7E8"</span><span class="p">,</span> <span class="n">phone_number</span><span class="o">=</span><span class="s">"254716622448"</span><span class="p">,</span> <span class="n">till_number</span><span class="o">=</span><span class="mi">703648</span><span class="p">)</span>
 
-<span class="n">client</span> <span class="o">=</span> <span class="n">nifty_client</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
-<span class="n">client</span><span class="o">.</span><span class="n">consume_token</span><span class="p">(</span>
-    <span class="n">transaction_id</span><span class="o">=</span><span class="s">"7BMKZ6K7E8"</span><span class="p">,</span> <span class="n">phone_number</span><span class="o">=</span><span class="s">"254716622448"</span><span class="p">,</span> <span class="n">till_number</span><span class="o">=</span><span class="mi">703648</span><span class="p">)</span>
-
-</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'niftyclient'</span>
-
-<span class="n">client</span> <span class="o">=</span> <span class="no">Nifty</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">initialise!</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
-<span class="n">client</span><span class="p">.</span><span class="nf">wallet</span><span class="p">.</span><span class="nf">consume_token</span><span class="p">(</span>
-    <span class="n">transaction_id</span><span class="o">=</span><span class="s2">"7BMKZ6K7E8"</span><span class="p">,</span> <span class="n">phone_number</span><span class="o">=</span><span class="s2">"254722123456"</span><span class="p">,</span> <span class="n">till_number</span><span class="o">=</span><span class="mi">703648</span><span class="p">)</span>
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="n">token_response</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="nf">wallet</span><span class="p">.</span><span class="nf">consume_token</span><span class="p">(</span>
+                <span class="n">transaction_id</span><span class="o">=</span><span class="s2">"7BMKZ6K7E8"</span><span class="p">,</span> <span class="n">phone_number</span><span class="o">=</span><span class="s2">"254716622448"</span><span class="p">,</span> <span class="n">till_number</span><span class="o">=</span><span class="mi">703648</span><span class="p">)</span>
 </code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The above command returns an object wrapping the response and can be accessed as shown below:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="n">token_response</span><span class="o">.</span><span class="n">available_resultset_size</span>
+<span class="n">token</span> <span class="o">=</span> <span class="n">token_response</span><span class="o">.</span><span class="n">tokens</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">token</span><span class="o">.</span><span class="n">trans_amount</span>
+</code></pre>
+<blockquote>
+<p>JSON dump of available fields in a token</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
    </span><span class="p">{</span><span class="w">
@@ -450,18 +457,19 @@ You must replace  provide a valid set of user id, access key and secret key. Not
 </tbody></table>
 
 <h2 id="view-transactions">View Transactions</h2>
-<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">nifty_client</span>
+<pre class="highlight python tab-python"><code><span class="n">transaction_response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">transactions</span><span class="p">()</span>
 
-<span class="n">client</span> <span class="o">=</span> <span class="n">nifty_client</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
-<span class="n">client</span><span class="o">.</span><span class="n">transactions</span><span class="p">()</span>
-
-</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'niftyclient'</span>
-
-<span class="n">client</span> <span class="o">=</span> <span class="no">Nifty</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">initialise!</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
-<span class="n">client</span><span class="p">.</span><span class="nf">transactions</span>
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="n">transaction_response</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="nf">wallet</span><span class="p">.</span><span class="nf">transactions</span>
 </code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The above command returns an object wrapping the response and can be accessed as shown below:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="n">transaction_response</span><span class="o">.</span><span class="n">available_resultset_size</span>
+<span class="n">transaction</span> <span class="o">=</span> <span class="n">transaction_response</span><span class="o">.</span><span class="n">transactions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">transaction</span><span class="o">.</span><span class="n">trans_amount</span>
+</code></pre>
+<blockquote>
+<p>JSON dump of available fields in a transaction</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
    </span><span class="p">{</span><span class="w">
@@ -524,18 +532,18 @@ You must replace  provide a valid set of user id, access key and secret key. Not
 </tbody></table>
 
 <h2 id="search-for-a-transaction">Search For A Transaction</h2>
-<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">nifty_client</span>
-
-<span class="n">client</span> <span class="o">=</span> <span class="n">nifty_client</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
-<span class="n">client</span><span class="o">.</span><span class="n">transactions</span><span class="p">(</span><span class="n">transaction_id</span><span class="o">=</span><span class="s">'DZ56D1KDZG'</span><span class="p">)</span>
-
-</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'niftyclient'</span>
-
-<span class="n">client</span> <span class="o">=</span> <span class="no">Nifty</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">initialise!</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
-<span class="n">client</span><span class="p">.</span><span class="nf">transactions</span><span class="p">(</span><span class="n">transaction_id</span><span class="o">=</span><span class="s1">'DZ56D1KDZG'</span><span class="p">)</span>
+<pre class="highlight python tab-python"><code><span class="n">transaction_response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">transactions</span><span class="p">(</span><span class="n">transaction_id</span><span class="o">=</span><span class="s">'DZ56D1KDZG'</span><span class="p">)</span>
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="n">transaction_response</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="nf">wallet</span><span class="p">.</span><span class="nf">transactions</span><span class="p">(</span><span class="n">transaction_id</span><span class="o">=</span><span class="s1">'DZ56D1KDZG'</span><span class="p">)</span>
 </code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The above command returns an object wrapping the response and can be accessed as shown below:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="n">transaction_response</span><span class="o">.</span><span class="n">available_resultset_size</span>
+<span class="n">transaction</span> <span class="o">=</span> <span class="n">transaction_response</span><span class="o">.</span><span class="n">transactions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">transaction</span><span class="o">.</span><span class="n">trans_amount</span>
+</code></pre>
+<blockquote>
+<p>JSON dump of available fields in a transaction.</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
    </span><span class="p">{</span><span class="w">
@@ -551,7 +559,7 @@ You must replace  provide a valid set of user id, access key and secret key. Not
    </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint lists the last 30 transactions made against your wallet. Use the limit and offset arguments to fetch paginated results.</p>
+<p>This endpoint lists the matching transactions found in your wallet.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
