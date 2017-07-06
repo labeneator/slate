@@ -221,7 +221,7 @@
       </div>
         <ul class="toc-footer">
             <li><a href='https://www.nifty.co.ke/users/register/'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
+            <li><a href='https://www.east36.co.ke'>An East36 Service</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
@@ -392,6 +392,8 @@ You must replace  provide a valid set of user id, access key and secret key. Not
 <h3 id="url-parameters">URL Parameters</h3>
 
 <p>None</p>
+
+<h1 id="mpesa-c2b">MPESA C2B</h1>
 
 <h2 id="consume-a-token">Consume A Token</h2>
 <pre class="highlight python tab-python"><code><span class="n">token_response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">consume_token</span><span class="p">(</span> 
@@ -586,6 +588,90 @@ You must replace  provide a valid set of user id, access key and secret key. Not
 <td>Where to start the paginated result.</td>
 </tr>
 </tbody></table>
+
+<h1 id="mpesa-online-checkout">MPESA Online Checkout</h1>
+
+<h2 id="payment-request">Payment Request</h2>
+<pre class="highlight python tab-python"><code><span class="n">online_checkout_response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">initiate_online_checkout</span><span class="p">(</span> 
+                <span class="n">transaction_id</span><span class="o">=</span><span class="s">"7BMKZ6K7E8"</span><span class="p">,</span> <span class="n">phone_number</span><span class="o">=</span><span class="s">"254716622448"</span><span class="p">,</span> 
+                <span class="n">transaction_amount</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">callback_url</span><span class="o">=</span><span class="s">"http://example.com"</span><span class="p">,</span> 
+                <span class="n">service_reference_id</span><span class="o">=</span><span class="s">"shopping-cart"</span>
+<span class="p">)</span>
+
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="n">online_checkout_response</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="nf">mpesa</span><span class="p">.</span><span class="nf">initiate_online_checkout</span><span class="p">(</span>
+                <span class="n">transaction_id</span><span class="o">=</span><span class="s2">"7BMKZ6K7E8"</span><span class="p">,</span> <span class="n">phone_number</span><span class="o">=</span><span class="s2">"254716622448"</span><span class="p">,</span> 
+                <span class="n">transaction_amount</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">callback_url</span><span class="o">=</span><span class="s2">"http://example.com"</span><span class="p">,</span> 
+                <span class="n">service_reference_id</span><span class="o">=</span><span class="s2">"shopping-cart"</span>
+<span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>The above command returns an object wrapping the response and can be accessed as shown below:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="n">online_checkout_response</span><span class="o">.</span><span class="n">available_resultset_size</span>
+<span class="n">request</span> <span class="o">=</span> <span class="n">online_checkout_response</span><span class="o">.</span><span class="n">request</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">token</span><span class="o">.</span><span class="n">transaction_amount</span>
+</code></pre>
+<blockquote>
+<p>JSON dump of available fields in a response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"callback_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"payment_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"39064aea-61a5-11e7-b7aa-0800276aff64"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-07-05T17:13:11.235922+00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-07-05T17:13:11.235922+00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"254700000000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"service_reference_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shopping-cart"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PENDING"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"transaction_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200.00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7BMKZ6K7E8"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ee65a7ce-574e-4054-b8a2-cb0171818d0d"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint calls MPESA and pops up a USSD request for MPESA PIN for the amount requested. If the pin is entered, the amount requested will be deducted from the subscriber.</p>
+
+<aside class="notice">This operation is not idempotent and cannot be safely called multiple times. However, each requests includes a payment_id that can be used to query the transaction status</aside>
+
+<aside class="success">If successful, this call will credit your account with the transaction value.</aside>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://api.nifty.co.ke/api/v1/user/&lt;uuid:user_id&gt;/mpesa/online-checkout</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>transaction_id</td>
+<td>A unique identifier generated by the caller. For example, this may be the caller&rsquo;s shopping cart ID.</td>
+</tr>
+<tr>
+<td>phone_number</td>
+<td>The subscriber to request an online checkout for.</td>
+</tr>
+<tr>
+<td>transaction_amount</td>
+<td>The amount to request from the subscriber.</td>
+</tr>
+<tr>
+<td>service_reference_id</td>
+<td>A means for a merchant to group related transactions.</td>
+</tr>
+<tr>
+<td>callback_url</td>
+<td>Callback on the merchant&rsquo;s side that will be used for notifications once the transaction reaches a terminate state.</td>
+</tr>
+</tbody></table>
+
+<h2 id="payment-status">Payment status</h2>
+
+<h3 id="mike-fill-out-this">MIke fill out this</h3>
 
           <h1 id="errors">Errors</h1>
 
